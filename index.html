@@ -9,19 +9,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #090C15;
-      --surface: #131B2A;
-      --surface-variant: #1E293B;
-      --border: #2D3B54;
-      --gold: #FFD700;
-      --gold-dark: #D97706;
-      --gold-light: #FDE68A;
-      --nova-cyan: #06B6D4;
-      --nova-emerald: #10B981;
-      --nova-purple: #8B5CF6;
-      --text-primary: #F8FAFC;
-      --text-secondary: #94A3B8;
-      --text-muted: #64748B;
+      --nova-grey: #98A3AD;
+      --bg-dark: #07111A;
+      --surface: #121B25;
+      --surface-variant: #1A2531;
+      --border: #2B3949;
+      --gold: #9FB1C8;
+      --gold-dark: #6D7C8D;
+      --gold-light: #DDE6F0;
+      --nova-cyan: #5CC8FF;
+      --nova-emerald: #3DDC97;
+      --nova-purple: #8CA4C9;
+      --text-primary: #F5F7FA;
+      --text-secondary: #A9B7C5;
+      --text-muted: #7D8A98;
       --danger: #EF4444;
       --radius: 16px;
     }
@@ -35,7 +36,10 @@
     }
 
     body {
-      background-color: var(--bg-dark);
+      background:
+        radial-gradient(circle at top left, rgba(92, 200, 255, 0.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(159, 177, 200, 0.14), transparent 30%),
+        var(--bg-dark);
       color: var(--text-primary);
       min-height: 100vh;
       display: flex;
@@ -52,7 +56,7 @@
       transform: translateX(-50%);
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, rgba(6, 182, 212, 0.04) 50%, transparent 70%);
+      background: radial-gradient(circle, rgba(159, 177, 200, 0.16) 0%, rgba(92, 200, 255, 0.08) 50%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
@@ -81,15 +85,15 @@
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      background: linear-gradient(135deg, var(--gold), var(--nova-cyan));
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #000;
+      color: #07111A;
       font-weight: 800;
       font-family: 'Space Grotesk', sans-serif;
       font-size: 22px;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+      box-shadow: 0 0 15px rgba(92, 200, 255, 0.24);
     }
 
     .brand-text h1 {
@@ -99,6 +103,10 @@
       background: linear-gradient(90deg, #FFF, var(--gold));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    .header-actions {
+      width: 42px;
     }
 
     .brand-text p {
@@ -197,12 +205,12 @@
       border-radius: var(--radius);
       padding: 20px;
       margin-bottom: 20px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     }
 
     .hero-card {
-      border: 1px solid var(--gold);
-      background: linear-gradient(145deg, var(--surface) 0%, rgba(30, 41, 59, 0.8) 100%);
+      border: 1px solid rgba(159, 177, 200, 0.3);
+      background: linear-gradient(145deg, rgba(18, 27, 37, 0.96) 0%, rgba(26, 37, 49, 0.9) 100%);
       position: relative;
       overflow: hidden;
     }
@@ -267,27 +275,29 @@
     }
 
     .btn-gold {
-      background: var(--gold);
-      color: #000;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: #061019;
+      box-shadow: 0 10px 24px rgba(159, 177, 200, 0.16);
     }
 
     .btn-gold:hover {
-      background: var(--gold-light);
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
       transform: translateY(-1px);
     }
 
     .btn-secondary {
-      background: var(--surface-variant);
+      background: rgba(159, 177, 200, 0.12);
       border: 1px solid var(--border);
       color: var(--nova-cyan);
     }
 
     .btn-secondary:hover {
       border-color: var(--nova-cyan);
+      box-shadow: inset 0 0 0 1px rgba(92, 200, 255, 0.2);
     }
 
     .btn-outline-gold {
-      background: var(--surface-variant);
+      background: rgba(159, 177, 200, 0.08);
       border: 1px solid var(--gold);
       color: var(--gold);
     }
@@ -384,14 +394,14 @@
 
     .modal-content {
       background: var(--surface);
-      border: 1px solid var(--gold);
+      border: 1px solid rgba(159, 177, 200, 0.25);
       border-radius: 20px;
       max-width: 600px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
       padding: 24px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45);
     }
 
     .input-field {
@@ -452,9 +462,7 @@
         <p><span class="live-dot"></span> Live Yield Engine Active</p>
       </div>
     </div>
-    <button class="admin-btn" onclick="openAdminAuthModal()">
-      ⚡ Admin Control Center
-    </button>
+    <div class="header-actions" aria-hidden="true"></div>
   </header>
 
   <main>
@@ -631,7 +639,7 @@
 
       <div id="admin-auth-box">
         <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">Enter Master Administrative PIN to access user account editor:</p>
-        <input type="password" id="admin-pin-input" class="input-field" placeholder="Enter PIN (Default: 8821)">
+        <input type="password" id="admin-pin-input" class="input-field" placeholder="Enter PIN">
         <button class="btn btn-gold" style="width: 100%;" onclick="verifyAdminPin()">Unlock Administrative Console</button>
       </div>
 
@@ -671,8 +679,28 @@
       </div>
       <label style="font-size: 12px; color: var(--text-muted);">Amount ($)</label>
       <input type="number" id="deposit-amount" class="input-field" value="7000">
-      <p style="font-size: 11px; color: var(--text-secondary);">USDT TRC20 Deposit Vault:</p>
-      <div style="background: var(--surface-variant); padding: 10px; border-radius: 8px; font-family: monospace; color: var(--nova-cyan); font-size: 12px; margin: 6px 0 16px 0;">TX9z4kL9pSinexVault88219x01</div>
+      <p style="font-size: 11px; color: var(--text-secondary);">Deposit Wallets:</p>
+      <div style="display: flex; flex-direction: column; gap: 8px; margin: 6px 0 16px 0;">
+        <div style="background: var(--surface-variant); padding: 10px; border-radius: 8px; font-family: monospace; color: var(--nova-cyan); font-size: 12px; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:11px; color: var(--text-muted);">BTC (Bech32)</div>
+            <div id="btc-wallet">bc1qce4ev8adzvx4vnu6hu34la9u92ydmpp9xzhvcd</div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn btn-secondary" onclick="copyToClipboard(document.getElementById('btc-wallet').innerText)">Copy</button>
+          </div>
+        </div>
+
+        <div style="background: var(--surface-variant); padding: 10px; border-radius: 8px; font-family: monospace; color: var(--nova-cyan); font-size: 12px; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:11px; color: var(--text-muted);">USDT TRC20</div>
+            <div id="usdt-vault">vTBmTeY5kqfK8Uq1tsv3VLgexzuSdx2adyo</div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="btn btn-secondary" onclick="copyToClipboard(document.getElementById('usdt-vault').innerText)">Copy</button>
+          </div>
+        </div>
+      </div>
       <button class="btn btn-gold" style="width: 100%;" onclick="executeDeposit()">Confirm Deposit</button>
     </div>
   </div>
@@ -862,7 +890,7 @@
 
     function verifyAdminPin() {
       const pin = document.getElementById('admin-pin-input').value;
-      if (pin === '8821' || pin === 'admin') {
+      if (pin === 'admin') {
         document.getElementById('admin-auth-box').style.display = 'none';
         document.getElementById('admin-console-box').style.display = 'block';
         renderAdminTable();
@@ -927,6 +955,25 @@
     }, 4000);
 
     // Initial render
+    
+    // Utility: copy wallet text to clipboard
+    function copyToClipboard(text) {
+      if (!navigator.clipboard) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        alert('Copied to clipboard');
+        return;
+      }
+      navigator.clipboard.writeText(text).then(function(){
+        alert('Copied to clipboard');
+      }, function(){
+        alert('Unable to copy');
+      });
+    }
     render();
   </script>
 </body>
